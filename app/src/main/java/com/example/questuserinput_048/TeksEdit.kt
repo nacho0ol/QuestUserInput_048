@@ -1,6 +1,5 @@
 package com.example.questuserinput_048
 
-import android.R
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -84,12 +83,24 @@ fun FormDataDiri(modifier: Modifier
 
         Divider(
             modifier = Modifier.padding(bottom = dimensionResource(R.dimen.padding_medium), top = dimensionResource(
-                id = R.dimen.devider_tipis
+                id = R.dimen.padding_tipis
             )),
-            thickness = dimensionResource(R.dimen.devider_tipis),
+            thickness = dimensionResource(R.dimen.padding_tipis),
             color = Color.DarkGray
         )
 
-            
+        Button(
+            modifier = Modifier.fillMaxWidth(1f),
+            enabled = textAlamat.isNotEmpty(),
+            onClick = {
+                nama=textNama
+                jenis=textJK
+                alamat=textAlamat
+            }
+        ){
+                Text(stringResource(R.string.submit))
+            }
+
+
     }
 }
