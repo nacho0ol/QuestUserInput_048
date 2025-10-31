@@ -26,7 +26,6 @@ import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 
-private val Color.Companion.DarkGrey: Color
 
 @Composable
 fun FormDataDiri(modifier: Modifier
@@ -84,23 +83,13 @@ fun FormDataDiri(modifier: Modifier
         )
 
         Divider(
-            modifier = Modifier.padding(bottom = dimensionResource(id = R.dimen.padding_medium), top = dimensionResource(
-                id = R.dimen.padding_medium
+            modifier = Modifier.padding(bottom = dimensionResource(R.dimen.padding_medium), top = dimensionResource(
+                id = R.dimen.devider_tipis
             )),
-            thickness = dimensionResource(id = R.dimen.divider_tipis),
-            color = Color.DarkGrey
+            thickness = dimensionResource(R.dimen.devider_tipis),
+            color = Color.DarkGray
         )
 
-        Button(
-            modifier = Modifier.fillMaxWidth(fraction = if),
-            enabled = textAlamat.isNotEmpty(),
-            onclick = {
-                nama=textNama
-                jenis=textJK
-                alamat=textAlamat
-            }
-        ){
-            Text(text= stringResource(id = R.string.submit))
-            }
+            
     }
 }
