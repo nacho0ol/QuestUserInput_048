@@ -16,15 +16,11 @@ import com.example.questuserinput_048.ui.theme.QuestUserInput_048Theme
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
         setContent {
             QuestUserInput_048Theme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
                     formRegist(
-
-                        modifier = Modifier.padding(innerPadding)
+                        modifier = Modifier.fillMaxSize()
                     )
-                }
             }
         }
     }

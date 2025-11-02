@@ -1,14 +1,19 @@
 package com.example.questuserinput_048
 
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.selection.selectable
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button
@@ -25,9 +30,14 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.dimensionResource
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.KeyboardType
+import androidx.compose.ui.unit.dp
 
 @Composable
 fun formRegist (modifier: Modifier
@@ -52,154 +62,170 @@ fun formRegist (modifier: Modifier
     var showDialog by remember { mutableStateOf(value = false) }
     var gender: List<String> = listOf("Laki-laki", "Perempuan")
 
-    Column(
-        modifier = modifier
-            .fillMaxWidth()
-            .padding(dimensionResource(R.dimen.padding_medium)),
-        verticalArrangement = Arrangement.Top,
-        horizontalAlignment = Alignment.CenterHorizontally
+    Box(
+        modifier = modifier,
+        contentAlignment = Alignment.Center
     ) {
-
-        Text(
-            text = stringResource(R.string.form),
-            style = MaterialTheme.typography.headlineSmall,
-            modifier = Modifier.padding(bottom = dimensionResource(R.dimen.padding_medium))
+        Image(
+            painter = painterResource(id = R.drawable.zootopia),
+            contentDescription = null,
+            contentScale = ContentScale.Crop,
+            modifier = Modifier.fillMaxSize()
         )
 
-        OutlinedTextField(
-            value = textNama,
-            singleLine = true,
-            modifier = Modifier.fillMaxWidth(),
-            label = { Text(text = stringResource(R.string.namalengkap)) },
-            onValueChange = {
-                textNama = it
-            }
-        )
-
-        Spacer(modifier = Modifier.height(dimensionResource(R.dimen.padding_small)))
-
-        OutlinedTextField(
-            value = textKota,
-            singleLine = true,
-            modifier = Modifier.fillMaxWidth(),
-            label = { Text(text = stringResource(R.string.kota)) },
-            onValueChange = {
-                textKota = it
-            }
-        )
-
-        Spacer(modifier = Modifier.height(dimensionResource(R.dimen.padding_small)))
-
-        Row(
-            modifier = Modifier.fillMaxWidth(),
-            horizontalArrangement = Arrangement.SpaceBetween,
-            verticalAlignment = Alignment.CenterVertically
+        Column(
+            modifier = Modifier
+                .padding(horizontal = 24.dp)
+                .clip(RoundedCornerShape(16.dp))
+                .background(Color.White.copy(alpha = 0.9f))
+                .padding(dimensionResource(R.dimen.padding_medium)),
+            verticalArrangement = Arrangement.Top,
+            horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            OutlinedTextField(
-                value = textTglLahir,
-                singleLine = true,
-                modifier = Modifier.weight(2f),
-                label = { Text(text = stringResource(R.string.Tanggal)) },
-                onValueChange = { textTglLahir = it }
+
+            Text(
+                text = stringResource(R.string.form),
+                style = MaterialTheme.typography.headlineSmall,
+                modifier = Modifier.padding(bottom = dimensionResource(R.dimen.padding_medium))
             )
-            Spacer(modifier = Modifier.width(dimensionResource(R.dimen.padding_small)))
+
             OutlinedTextField(
-                value = textRT,
+                value = textNama,
                 singleLine = true,
-                modifier = Modifier.weight(1f),
-                label = { Text(text = stringResource(R.string.RT)) },
-                onValueChange = { textRT = it },
+                modifier = Modifier.fillMaxWidth(),
+                label = { Text(text = stringResource(R.string.namalengkap)) },
+                onValueChange = {
+                    textNama = it
+                }
+            )
+
+            Spacer(modifier = Modifier.height(dimensionResource(R.dimen.padding_small)))
+
+            OutlinedTextField(
+                value = textKota,
+                singleLine = true,
+                modifier = Modifier.fillMaxWidth(),
+                label = { Text(text = stringResource(R.string.kota)) },
+                onValueChange = {
+                    textKota = it
+                }
+            )
+
+            Spacer(modifier = Modifier.height(dimensionResource(R.dimen.padding_small)))
+
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.SpaceBetween,
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                OutlinedTextField(
+                    value = textTglLahir,
+                    singleLine = true,
+                    modifier = Modifier.weight(2f),
+                    label = { Text(text = stringResource(R.string.Tanggal)) },
+                    onValueChange = { textTglLahir = it }
+                )
+                Spacer(modifier = Modifier.width(dimensionResource(R.dimen.padding_small)))
+                OutlinedTextField(
+                    value = textRT,
+                    singleLine = true,
+                    modifier = Modifier.weight(1f),
+                    label = { Text(text = stringResource(R.string.RT)) },
+                    onValueChange = { textRT = it },
+                    keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number)
+                )
+                Spacer(modifier = Modifier.width(dimensionResource(R.dimen.padding_small)))
+                OutlinedTextField(
+                    value = textRW,
+                    singleLine = true,
+                    modifier = Modifier.weight(1f),
+                    label = { Text(text = stringResource(R.string.RW)) },
+                    onValueChange = { textRW = it },
+                    keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number)
+                )
+            }
+
+            Spacer(modifier = Modifier.height(dimensionResource(R.dimen.padding_small)))
+
+            OutlinedTextField(
+                value = textUmur,
+                singleLine = true,
+                modifier = Modifier.fillMaxWidth(),
+                label = { Text(text = stringResource(R.string.umur)) },
+                onValueChange = { textUmur = it },
                 keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number)
             )
-            Spacer(modifier = Modifier.width(dimensionResource(R.dimen.padding_small)))
-            OutlinedTextField(
-                value = textRW,
-                singleLine = true,
-                modifier = Modifier.weight(1f),
-                label = { Text(text = stringResource(R.string.RW)) },
-                onValueChange = { textRW = it },
-                keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number)
-            )
-        }
 
-        Spacer(modifier = Modifier.height(dimensionResource(R.dimen.padding_small)))
+            Spacer(modifier = Modifier.height(dimensionResource(R.dimen.padding_medium)))
 
-        OutlinedTextField(
-            value = textUmur,
-            singleLine = true,
-            modifier = Modifier.fillMaxWidth(),
-            label = { Text(text = stringResource(R.string.umur)) },
-            onValueChange = { textUmur = it },
-            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number)
-        )
-
-        Spacer(modifier = Modifier.height(dimensionResource(R.dimen.padding_medium)))
-
-        Text(text = stringResource(R.string.jenisk), modifier = Modifier.fillMaxWidth())
-        Row(modifier = Modifier.fillMaxWidth()) {
-            gender.forEach { item ->
-                Row(
-                    modifier = Modifier
-                        .selectable(
+            Text(text = stringResource(R.string.jenisk), modifier = Modifier.fillMaxWidth())
+            Row(modifier = Modifier.fillMaxWidth()) {
+                gender.forEach { item ->
+                    Row(
+                        modifier = Modifier
+                            .selectable(
+                                selected = textJK == item,
+                                onClick = { textJK = item }
+                            )
+                            .weight(1f),
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
+                        RadioButton(
                             selected = textJK == item,
-                            onClick = { textJK = item }
+                            onClick = {
+                                textJK = item
+                            }
                         )
-                        .weight(1f),
-                    verticalAlignment = Alignment.CenterVertically
-                ) {
-                    RadioButton(
-                        selected = textJK == item,
-                        onClick = {
-                            textJK = item
-                        }
-                    )
-                    Text(text = item)
+                        Text(text = item)
+                    }
                 }
             }
-        }
 
-        Spacer(modifier = Modifier.height(dimensionResource(R.dimen.padding_medium)))
+            Spacer(modifier = Modifier.height(dimensionResource(R.dimen.padding_medium)))
 
-        Row(
-            modifier = Modifier.fillMaxWidth(),
-            verticalAlignment = Alignment.CenterVertically
-        ) {
-            Checkbox(
-                checked = checkboxSetuju,
-                onCheckedChange = { checkboxSetuju = it }
-            )
-            Text(
-                text = stringResource(R.string.agree),
-                style = MaterialTheme.typography.bodyMedium,
-                modifier = Modifier.padding(start = dimensionResource(R.dimen.padding_tipis))
-            )
-        }
-
-        Spacer(modifier = Modifier.height(dimensionResource(R.dimen.padding_medium)))
-
-        val isFormValid = textNama.isNotEmpty() && textKota.isNotEmpty() &&
-                textTglLahir.isNotEmpty() && textRT.isNotEmpty() &&
-                textRW.isNotEmpty() && textUmur.isNotEmpty() &&
-                textJK.isNotEmpty() && checkboxSetuju
-
-        Button(
-            modifier = Modifier.fillMaxWidth(),
-            enabled = isFormValid,
-            onClick = {
-                nama = textNama
-                kota = textKota
-                tglLahir = textTglLahir
-                rt = textRT
-                rw = textRW
-                umur = textUmur
-                jenis = textJK
-
-                showDialog = true
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Checkbox(
+                    checked = checkboxSetuju,
+                    onCheckedChange = { checkboxSetuju = it }
+                )
+                Text(
+                    text = stringResource(R.string.agree),
+                    style = MaterialTheme.typography.bodyMedium,
+                    modifier = Modifier.padding(start = dimensionResource(R.dimen.padding_tipis))
+                )
             }
-        ) {
-            Text(stringResource(R.string.submit))
+
+            Spacer(modifier = Modifier.height(dimensionResource(R.dimen.padding_medium)))
+
+            val isFormValid = textNama.isNotEmpty() && textKota.isNotEmpty() &&
+                    textTglLahir.isNotEmpty() && textRT.isNotEmpty() &&
+                    textRW.isNotEmpty() && textUmur.isNotEmpty() &&
+                    textJK.isNotEmpty() && checkboxSetuju
+
+            Button(
+                modifier = Modifier.fillMaxWidth(),
+                enabled = isFormValid,
+                onClick = {
+                    nama = textNama
+                    kota = textKota
+                    tglLahir = textTglLahir
+                    rt = textRT
+                    rw = textRW
+                    umur = textUmur
+                    jenis = textJK
+
+                    showDialog = true
+                }
+            ) {
+                Text(stringResource(R.string.submit))
+            }
         }
     }
+
+
 
     if (showDialog) {
         AlertDialog(
