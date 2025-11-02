@@ -12,5 +12,10 @@ fun formRegist (modifier: Modifier
 ){
     var textNama by remember { mutableStateOf(value = "")}
     var textKota by remember { mutableStateOf(value = "")}
+    var textTglLahir by remember { mutableStateOf(value = "") }
+    var textRT by remember { mutableStateOf(value = "") }
+    var textRW by remember { mutableStateOf(value = "") }
+    var textUmur by remember { mutableStateOf(value = "") }
+    var textJK by remember { mutableStateOf(value = "") }
 
 }
