@@ -18,4 +18,12 @@ fun formRegist (modifier: Modifier
     var textUmur by remember { mutableStateOf(value = "") }
     var textJK by remember { mutableStateOf(value = "") }
     var checkboxSetuju by remember { mutableStateOf(value = false) }
+
+    var nama by remember { mutableStateOf(value = "") }
+    var kota by remember { mutableStateOf(value = "") }
+    var tglLahir by remember { mutableStateOf(value = "") }
+    var rt by remember { mutableStateOf(value = "") }
+    var rw by remember { mutableStateOf(value = "") }
+    var umur by remember { mutableStateOf(value = "") }
+    var jenis by remember { mutableStateOf(value = "") }
 }
