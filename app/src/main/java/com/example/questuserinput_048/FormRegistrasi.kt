@@ -10,6 +10,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.selection.selectable
 import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.material3.Checkbox
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.RadioButton
@@ -155,6 +156,21 @@ fun formRegist (modifier: Modifier
         }
 
         Spacer(modifier = Modifier.height(dimensionResource(R.dimen.padding_medium)))
+
+        Row(
+            modifier = Modifier.fillMaxWidth(),
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            Checkbox(
+                checked = checkboxSetuju,
+                onCheckedChange = { checkboxSetuju = it }
+            )
+            Text(
+                text = stringResource(R.string.agree),
+                style = MaterialTheme.typography.bodyMedium,
+                modifier = Modifier.padding(start = dimensionResource(R.dimen.padding_tipis))
+            )
+        }
     }
 
 }
