@@ -2,6 +2,7 @@ package com.example.questuserinput_048
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -84,7 +85,15 @@ fun formRegist (modifier: Modifier
             modifier = Modifier.fillMaxWidth(),
             horizontalArrangement = Arrangement.SpaceBetween,
             verticalAlignment = Alignment.CenterVertically
-        )
+        ) {
+            OutlinedTextField(
+                value = textTglLahir,
+                singleLine = true,
+                modifier = Modifier.weight(2f),
+                label = { Text(text = stringResource(R.string.Tanggal)) },
+                onValueChange = { textTglLahir = it }
+            )
+        }
     }
 
 }
