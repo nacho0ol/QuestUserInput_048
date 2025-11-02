@@ -77,6 +77,8 @@ fun formRegist (modifier: Modifier
                 textKota = it
             }
         )
+
+        Spacer(modifier = Modifier.height(dimensionResource(R.dimen.padding_small)))
     }
 
 }
