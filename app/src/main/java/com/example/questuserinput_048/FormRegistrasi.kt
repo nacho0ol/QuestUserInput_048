@@ -115,6 +115,8 @@ fun formRegist (modifier: Modifier
                 keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number)
             )
         }
+
+        Spacer(modifier = Modifier.height(dimensionResource(R.dimen.padding_small)))
     }
 
 }
