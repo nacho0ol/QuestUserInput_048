@@ -171,6 +171,8 @@ fun formRegist (modifier: Modifier
                 modifier = Modifier.padding(start = dimensionResource(R.dimen.padding_tipis))
             )
         }
+
+        Spacer(modifier = Modifier.height(dimensionResource(R.dimen.padding_medium)))
     }
 
 }
