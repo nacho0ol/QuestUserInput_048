@@ -106,6 +106,14 @@ fun formRegist (modifier: Modifier
                 keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number)
             )
             Spacer(modifier = Modifier.width(dimensionResource(R.dimen.padding_small)))
+            OutlinedTextField(
+                value = textRW,
+                singleLine = true,
+                modifier = Modifier.weight(1f),
+                label = { Text(text = stringResource(R.string.RW)) },
+                onValueChange = { textRW = it },
+                keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number)
+            )
         }
     }
 
