@@ -8,9 +8,11 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.selection.selectable
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material3.RadioButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -129,6 +131,28 @@ fun formRegist (modifier: Modifier
 
         Spacer(modifier = Modifier.height(dimensionResource(R.dimen.padding_medium)))
 
+        Text(text = stringResource(R.string.jenisk), modifier = Modifier.fillMaxWidth())
+        Row(modifier = Modifier.fillMaxWidth()) {
+            gender.forEach { item ->
+                Row(
+                    modifier = Modifier
+                        .selectable(
+                            selected = textJK == item,
+                            onClick = { textJK = item }
+                        )
+                        .weight(1f),
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    RadioButton(
+                        selected = textJK == item,
+                        onClick = {
+                            textJK = item
+                        }
+                    )
+                    Text(text = item)
+                }
+            }
+        }
     }
 
 }
