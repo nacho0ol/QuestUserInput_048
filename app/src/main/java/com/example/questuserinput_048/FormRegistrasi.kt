@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -51,6 +52,16 @@ fun formRegist (modifier: Modifier
             text = stringResource(R.string.form),
             style = MaterialTheme.typography.headlineSmall,
             modifier = Modifier.padding(bottom = dimensionResource(R.dimen.padding_medium))
+        )
+
+        OutlinedTextField(
+            value = textNama,
+            singleLine = true,
+            modifier = Modifier.fillMaxWidth(),
+            label = { Text(text = stringResource(R.string.namalengkap)) },
+            onValueChange = {
+                textNama = it
+            }
         )
     }
 
