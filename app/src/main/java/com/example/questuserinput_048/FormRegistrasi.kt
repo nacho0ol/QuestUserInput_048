@@ -17,5 +17,5 @@ fun formRegist (modifier: Modifier
     var textRW by remember { mutableStateOf(value = "") }
     var textUmur by remember { mutableStateOf(value = "") }
     var textJK by remember { mutableStateOf(value = "") }
-
+    var checkboxSetuju by remember { mutableStateOf(value = false) }
 }
