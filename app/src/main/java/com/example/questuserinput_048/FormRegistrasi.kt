@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
@@ -93,6 +94,8 @@ fun formRegist (modifier: Modifier
                 label = { Text(text = stringResource(R.string.Tanggal)) },
                 onValueChange = { textTglLahir = it }
             )
+            Spacer(modifier = Modifier.width(dimensionResource(R.dimen.padding_small)))
+
         }
     }
 
