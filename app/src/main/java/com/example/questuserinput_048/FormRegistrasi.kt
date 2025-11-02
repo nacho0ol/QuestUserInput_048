@@ -117,6 +117,15 @@ fun formRegist (modifier: Modifier
         }
 
         Spacer(modifier = Modifier.height(dimensionResource(R.dimen.padding_small)))
+
+        OutlinedTextField(
+            value = textUmur,
+            singleLine = true,
+            modifier = Modifier.fillMaxWidth(),
+            label = { Text(text = stringResource(R.string.umur)) },
+            onValueChange = { textUmur = it },
+            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number) // Input angka
+        )
     }
 
 }
