@@ -10,6 +10,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.selection.selectable
 import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.material3.Button
 import androidx.compose.material3.Checkbox
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
@@ -178,6 +179,24 @@ fun formRegist (modifier: Modifier
                 textTglLahir.isNotEmpty() && textRT.isNotEmpty() &&
                 textRW.isNotEmpty() && textUmur.isNotEmpty() &&
                 textJK.isNotEmpty() && checkboxSetuju
+
+        Button(
+            modifier = Modifier.fillMaxWidth(),
+            enabled = isFormValid,
+            onClick = {
+                nama = textNama
+                kota = textKota
+                tglLahir = textTglLahir
+                rt = textRT
+                rw = textRW
+                umur = textUmur
+                jenis = textJK
+
+                showDialog = true
+            }
+        ) {
+            Text(stringResource(R.string.submit))
+        }
     }
 
 }
