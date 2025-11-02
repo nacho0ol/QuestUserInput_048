@@ -124,7 +124,7 @@ fun formRegist (modifier: Modifier
             modifier = Modifier.fillMaxWidth(),
             label = { Text(text = stringResource(R.string.umur)) },
             onValueChange = { textUmur = it },
-            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number) // Input angka
+            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number)
         )
     }
 
