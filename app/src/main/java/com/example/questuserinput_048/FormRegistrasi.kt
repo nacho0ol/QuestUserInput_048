@@ -26,4 +26,10 @@ fun formRegist (modifier: Modifier
     var rw by remember { mutableStateOf(value = "") }
     var umur by remember { mutableStateOf(value = "") }
     var jenis by remember { mutableStateOf(value = "") }
+
+    var showDialog by remember { mutableStateOf(value = false) }
+    var gender: List<String> = listOf("Laki-laki", "Perempuan")
+
+
+
 }
