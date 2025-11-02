@@ -105,7 +105,7 @@ fun formRegist (modifier: Modifier
                 onValueChange = { textRT = it },
                 keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number)
             )
-
+            Spacer(modifier = Modifier.width(dimensionResource(R.dimen.padding_small)))
         }
     }
 
