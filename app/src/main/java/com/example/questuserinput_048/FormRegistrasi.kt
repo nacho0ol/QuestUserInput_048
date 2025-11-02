@@ -67,6 +67,16 @@ fun formRegist (modifier: Modifier
         )
 
         Spacer(modifier = Modifier.height(dimensionResource(R.dimen.padding_small)))
+
+        OutlinedTextField(
+            value = textKota,
+            singleLine = true,
+            modifier = Modifier.fillMaxWidth(),
+            label = { Text(text = stringResource(R.string.kota)) },
+            onValueChange = {
+                textKota = it
+            }
+        )
     }
 
 }
