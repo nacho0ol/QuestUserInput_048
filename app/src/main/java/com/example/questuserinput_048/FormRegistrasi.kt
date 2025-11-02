@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
@@ -20,6 +21,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.input.KeyboardType
 
 @Composable
 fun formRegist (modifier: Modifier
@@ -95,6 +97,14 @@ fun formRegist (modifier: Modifier
                 onValueChange = { textTglLahir = it }
             )
             Spacer(modifier = Modifier.width(dimensionResource(R.dimen.padding_small)))
+            OutlinedTextField(
+                value = textRT,
+                singleLine = true,
+                modifier = Modifier.weight(1f),
+                label = { Text(text = stringResource(R.string.RT)) },
+                onValueChange = { textRT = it },
+                keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number)
+            )
 
         }
     }
