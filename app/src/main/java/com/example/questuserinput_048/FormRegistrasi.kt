@@ -173,6 +173,11 @@ fun formRegist (modifier: Modifier
         }
 
         Spacer(modifier = Modifier.height(dimensionResource(R.dimen.padding_medium)))
+
+        val isFormValid = textNama.isNotEmpty() && textKota.isNotEmpty() &&
+                textTglLahir.isNotEmpty() && textRT.isNotEmpty() &&
+                textRW.isNotEmpty() && textUmur.isNotEmpty() &&
+                textJK.isNotEmpty() && checkboxSetuju
     }
 
 }
