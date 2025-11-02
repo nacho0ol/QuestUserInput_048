@@ -153,6 +153,8 @@ fun formRegist (modifier: Modifier
                 }
             }
         }
+
+        Spacer(modifier = Modifier.height(dimensionResource(R.dimen.padding_medium)))
     }
 
 }
