@@ -10,4 +10,12 @@
     <string name="umur">Umur</string>
     <string name="jenisk">Jenis Kelamin</string>
     <string name="agree">Saya setuju dengan syarat dan ketentuan yang berlaku</string>
+    <string name="dialog_title">Berhasil</string>
+    <string name="dialog_nama">Nama: %1$s</string>
+    <string name="dialog_kota">Kota Asal: %1$s</string>
+    <string name="dialog_tgl_lahir">Tgl Lahir: %1$s</string>
+    <string name="dialog_rtrw">RT/RW: %1$s / %2$s</string>
+    <string name="dialog_umur">Umur: %1$s</string>
+    <string name="dialog_jenis_kelamin">Jenis Kelamin: %1$s</string>
+    <string name="dialog_ok">OK</string>
 </resources>

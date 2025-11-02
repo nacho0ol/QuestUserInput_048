@@ -10,12 +10,14 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.selection.selectable
 import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button
 import androidx.compose.material3.Checkbox
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.RadioButton
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -197,6 +199,36 @@ fun formRegist (modifier: Modifier
         ) {
             Text(stringResource(R.string.submit))
         }
+    }
+
+    if (showDialog) {
+        AlertDialog(
+            onDismissRequest = {showDialog = false},
+
+            title = { Text(text = stringResource(R.string.dialog_title))},
+
+            text = {
+                Column {
+
+                    Text(text = stringResource(R.string.dialog_nama, nama))
+                    Text(text = stringResource(R.string.dialog_kota, kota))
+                    Text(text = stringResource(R.string.dialog_tgl_lahir, tglLahir))
+                    Text(text = stringResource(R.string.dialog_rtrw, rt, rw))
+                    Text(text = stringResource(R.string.dialog_umur, umur))
+                    Text(text = stringResource(R.string.dialog_jenis_kelamin, jenis))
+                }
+            },
+
+            confirmButton = {
+                TextButton(
+                    onClick = {
+                        showDialog = false
+                    }
+                ) {
+                    Text(stringResource(R.string.dialog_ok))
+                }
+            }
+        )
     }
 
 }
