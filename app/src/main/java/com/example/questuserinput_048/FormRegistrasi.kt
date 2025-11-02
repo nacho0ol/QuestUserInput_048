@@ -15,14 +15,22 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.selection.selectable
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.DateRange
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button
 import androidx.compose.material3.Checkbox
+import androidx.compose.material3.DatePicker
+import androidx.compose.material3.DatePickerDialog
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.RadioButton
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
+import androidx.compose.material3.rememberDatePickerState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -38,7 +46,11 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
+import java.text.SimpleDateFormat
+import java.util.Date
+import java.util.Locale
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun formRegist (modifier: Modifier
 ){
@@ -61,6 +73,9 @@ fun formRegist (modifier: Modifier
 
     var showDialog by remember { mutableStateOf(value = false) }
     var gender: List<String> = listOf("Laki-laki", "Perempuan")
+
+    var showDatePickerDialog by remember { mutableStateOf(false) }
+    val datePickerState = rememberDatePickerState()
 
     Box(
         modifier = modifier,
@@ -120,10 +135,21 @@ fun formRegist (modifier: Modifier
             ) {
                 OutlinedTextField(
                     value = textTglLahir,
-                    singleLine = true,
+                    onValueChange = { },
+                    readOnly = true,
                     modifier = Modifier.weight(2f),
                     label = { Text(text = stringResource(R.string.Tanggal)) },
-                    onValueChange = { textTglLahir = it }
+
+                    trailingIcon = {
+                        IconButton(onClick = {
+                            showDatePickerDialog = true
+                        }) {
+                            Icon(
+                                imageVector = Icons.Default.DateRange,
+                                contentDescription = "Pilih Tanggal"
+                            )
+                        }
+                    }
                 )
                 Spacer(modifier = Modifier.width(dimensionResource(R.dimen.padding_small)))
                 OutlinedTextField(
@@ -225,7 +251,43 @@ fun formRegist (modifier: Modifier
         }
     }
 
+    if (showDatePickerDialog) {
+        DatePickerDialog(
+            onDismissRequest = { showDatePickerDialog = false},
 
+            confirmButton = {
+                TextButton(
+                    onClick = {
+                        val selectedDateMillis = datePickerState.selectedDateMillis
+                        if (selectedDateMillis != null) {
+                            val formatter = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
+                            val dateString = formatter.format(Date(selectedDateMillis))
+
+                            textTglLahir = dateString
+                        }
+
+                        showDatePickerDialog = false
+                    }
+                ) {
+                    Text("OK")
+                }
+            },
+
+            dismissButton = {
+                TextButton(
+                    onClick = {
+
+                        showDatePickerDialog = false
+                    }
+                ) {
+                    Text("Cancel")
+                }
+            }
+        ) {
+
+            DatePicker(state = datePickerState)
+        }
+    }
 
     if (showDialog) {
         AlertDialog(
