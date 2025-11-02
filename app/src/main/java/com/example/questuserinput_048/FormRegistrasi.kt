@@ -79,6 +79,12 @@ fun formRegist (modifier: Modifier
         )
 
         Spacer(modifier = Modifier.height(dimensionResource(R.dimen.padding_small)))
+
+        Row(
+            modifier = Modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.SpaceBetween,
+            verticalAlignment = Alignment.CenterVertically
+        )
     }
 
 }
