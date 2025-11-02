@@ -2,7 +2,9 @@ package com.example.questuserinput_048
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
@@ -63,6 +65,8 @@ fun formRegist (modifier: Modifier
                 textNama = it
             }
         )
+
+        Spacer(modifier = Modifier.height(dimensionResource(R.dimen.padding_small)))
     }
 
 }
